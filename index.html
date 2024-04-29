@@ -1,11 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle Overview</title>
 </head>
+
 <body>
-    
+    <div class="wrapper">
+        <div class="container">
+            <h1 class="container__title">Vehicle overview</h1>
+            <div class="container__checkList">
+                <ul class="checkList">
+                    <li class="checkList__item">
+                        <i class='checkList__icon bx bxs-check-circle'></i>
+                        <div class="checkList__text">
+                            <h2 class="checkList__name">all system chack</h2>
+                            <p class="checkList__status">normal</p>
+                        </div>
+                    </li>
+                    <li class="checkList__item">
+                        <i class='checkList__icon bx bxs-check-circle'></i>
+                        <div class="checkList__text">
+                            <h2 class="checkList__name">rendezvous burn slow</h2>
+                            <p class="checkList__status">normal</p>
+                        </div>
+                    </li>
+                    <li class="checkList__item">
+                        <i class='checkList__icon bx bxs-check-circle'></i>
+                        <div class="checkList__text">
+                            <h2 class="checkList__name">prepare rendezvous burn</h2>
+                            <p class="checkList__status">normal</p>
+                        </div>
+                    </li>
+                    <li class="checkList__item">
+                        <i classass="checkList_ ='bx bxs-check-circle"></i>
+                        <div class="checkList__text">
+                            <h2 class="checkList__name">thermal shield</h2>
+                            <p class="checkList__status">applied</p>
+                        </div>
+                    </li>
+                    <li class="checkList__item">
+                        <i class='checkList__icon bx bxs-check-circle'></i>
+                        <div class="checkList__text">
+                            <h2 class="checkList__name">burn go/no-go</h2>
+                            <p class="checkList__status">normal</p>
+                        </div>
+                    </li>
+                    <li class="checkList__item">
+                        <i class='checkList__icon bx bxs-check-circle'></i>
+                        <div class="checkList__text">
+                            <h2 class="checkList__name">power completion</h2>
+                            <p class="checkList__status">awaiting</p>
+                        </div>
+                    </li>
+                    <li class="checkList__item">
+                        <i class='checkList__icon bx bxs-check-circle'></i>
+                        <div class="checkList__text">
+                            <h2 class="checkList__name">station desk check</h2>
+                            <p class="checkList__status">normal</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="checkList__btns">
+                    <button class="btn">systems</button>
+                    <button class="btn">cabin</button>
+                </div>
+            </div>
+            <div class="container__main">
+                <main></main>
+            </div>
+            <div class="container__indicators">
+                <ul class="indicators indicators--1">
+                    <li class="indicators__item">
+                        <label>
+                            <p>Inertial Velocity</p>
+                            <input type="range" min="0" max="100">
+                            <span>7.68km/s</span>
+                        </label>
+                        <label>
+                            <p>altitude</p>
+                            <input type="range" min="0" max="100">
+                            <span>390.0 km</span>
+                        </label>
+                        <label>
+                            <p>apogee</p>
+                            <input type="range" min="0" max="100">
+                            <span>404.4 km</span>
+                        </label>
+                        <label>
+                            <p>perigee</p>
+                            <input type="range" min="0" max="100">
+                            <span>389.4 km</span>
+                        </label>
+                    </li>
+                </ul>
+                <ul class="indicators indicators--2">
+                    <li class="indicators__item">
+                        <label>
+                            <p>Inclination</p>
+                            <input type="range" min="0" max="100">
+                            <span>51.67<sup>o</sup></span>
+                        </label>
+                        <label>
+                            <p>range to ISS</p>
+                            <input type="range" min="0" max="100">
+                            <span>0.02 km</span>
+                        </label>
+                    </li>
+                </ul>
+                <div class="checkList__btns">
+                    <span class="">Power, Engine, comms</span>
+                    <button class="btn">more</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
