@@ -88,22 +88,73 @@ img {
     color: var(--color--two);
 }
 
-.nav__item a:hover, .nav__item a:active {
+.nav__item a:hover,
+.nav__item a:active {
     color: var(--color--one);
 }
 
 /* MAIN */
-.main {
+.wrapper__main {
     background-color: #00000073;
     flex: 1;
     height: 100%;
     border-radius: var(--radius);
+    overflow-y: scroll;
 }
 
+.main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
 
-
+/* CARDS HISTORY */
 .card {
+    background-color: #0000005b;
     color: #ffffff;
+    /* max-width: 250px; */
+    padding: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* Número de líneas permitidas */
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    border-radius: var(--radius);
+}
+
+.card__title {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.card__details {
+    font-size: 0.725rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.card > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.625rem;
+    margin-top: 1rem;
+}
+
+.card__article {
+    font-size: 1rem;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 0.2rem;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: fit-content;
+    height: fit-content; */
 }
 /* CONTAINER */
 /* .container {

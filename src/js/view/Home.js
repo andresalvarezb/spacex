@@ -1,12 +1,11 @@
+import { getHistory } from "../controller/histories.controller.js";
 import { getHistories } from "../model/Histories.model.js";
 
 export async function cardHistories() {
-    const main = document.getElementById('#main')
+    const main = document.getElementById('main')
+    const data = await getHistory();
 
-    const data = await getHistories();
-
-    const cards = []
-    await Promise.all(data.forEach(({ title, date, details, links }) => {
+    const cards = await Promise.all(data.map(({ title, date, details, links }) => {
         const card = document.createElement('div')
         const titleCard = document.createElement('h2')
         const textCard = document.createElement('p')
@@ -17,8 +16,9 @@ export async function cardHistories() {
         titleCard.textContent = title
         textCard.textContent = details
         dateCard.textContent = date
+        linkArticle.innerHTML = `<i class='bx bx-link'></i>`
 
-        // atributtes
+        // attributes
         card.classList.add("card")
         titleCard.classList.add("card__title")
         textCard.classList.add("card__details")
@@ -28,14 +28,12 @@ export async function cardHistories() {
         linkArticle.setAttribute("href", links[0])
 
         // JOIN
-
         container.append(dateCard, linkArticle)
-        cards.push(card.append(titleCard, textCard, container))
+        card.append(titleCard, textCard, container)
+        return card
     }))
 
-    // main.append(...cards)
-    // console.log( await Promise.all(cards));
-    console.log(cards);
+    main.append(...cards)
 
     // < div class="card" >
     //     <h2 class="card__title"></h2>
