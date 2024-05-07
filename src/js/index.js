@@ -1,3 +1,3 @@
-import { cardHistories } from "./view/Home.js";
+// import { cardHistories } from "./view/History.js";
 
-cardHistories()
+// cardHistories()
