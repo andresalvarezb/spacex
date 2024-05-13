@@ -19,11 +19,13 @@ export async function getInfoCompany() {
     const companySummary = document.createElement("p")
     const companyContainerMedia = document.createElement("div")
 
-    console.log(valuation.toLocalString('en-US', { style: 'currency', currency: 'USD' }));
-    companyFounder.textContent = `Founder: ${founder}`
-    companyValuation.textContent = `Valuation: ${valuation.toLocalString('en-US', { style: 'currency', currency: 'USD' })}`
-    companyAddress.textContent = `Address: ${headquarters.address}, ${headquarters.city}`
-    companySummary.textContent = summary
+    // console.log(valuation.toLocalString('en-US', { style: 'currency', currency: 'USD' }));
+    // console.log(valuation.toLocalString());
+    companyFounder.innerHTML = `<b>Founder:</b> ${founder}`
+    // companyValuation.innerHTML = `Valuation: ${valuation.toLocalString('en-US', { style: 'currency', currency: 'USD' })}`
+    companyValuation.innerHTML = `<b>Valuation:</b> ${valuation}`
+    companyAddress.innerHTML = `<b>Address:</b> ${headquarters.address}, ${headquarters.city}`
+    companySummary.innerHTML = summary
     Object.keys(links).forEach(media => {
         const linkContainer = document.createElement("a")
         linkContainer.setAttribute("href", links[media])
