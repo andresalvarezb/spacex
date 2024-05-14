@@ -1,6 +1,10 @@
-// import { cardHistories } from "./view/History.js";
 
-import { getInfoCompany } from "./view/Company.js";
+import { CompanyInfo } from "./components/companyInfo.js";
 
-// cardHistories()
-getInfoCompany()
+const main = document.getElementById("main")
+
+window.addEventListener('load', (e) => {
+    main.innerHTML = `<company-infomation></company-infomation>`
+})
+
+customElements.define("company-infomation", CompanyInfo);

@@ -113,7 +113,7 @@ img {
 } */
 
 /* HOME - COMPANY*/
-.company {
+/* .company {
     height: 100%;
     color: var(--color--five);
     background: url("../assets/imgs/cohete-home-company.jpeg") center/cover no-repeat;
@@ -158,7 +158,7 @@ img {
 .company__content p + div a {
     color: var(--color--six);
     font-size: 1.2rem;
-}
+} */
 
 /* CARDS HISTORY */
 .card {
