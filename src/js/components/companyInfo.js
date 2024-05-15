@@ -1,3 +1,5 @@
+import { getInfoCompany } from "../controller/Company.controller.js";
+
 const style = /*html */ `
     <style>
         .company {
@@ -52,28 +54,36 @@ export class CompanyInfo extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: 'open'})
-        this.shadowRoot.innerHTML = /*html */ `
-        ${style}
+        this.shadowRoot.innerHTML = style
+    }
+
+    connectedCallback(){
+        this.getData()
+    }
+
+
+    // METODOS
+    async getData() {
+        const {headquarters, links, founder, valuation, summary} = await getInfoCompany()
+        this.shadowRoot.innerHTML += /*html */`
         <div class="company">
             <div class="company__content">
                 <div class="company__text">
-                    <p>Founder</p>
-                    <p>Valuation:  </p>
-                    <address>Address: </address>
+                    <p><b>Founder:</b> ${founder}</p>
+                    <p><b>Valuation:</b> ${valuation} </p>
+                    <address><b>Address:</b> ${headquarters.address} ${headquarters.city}, ${headquarters.state}</address>
                 </div>
                 <div>
-                    <p>SpaceX designs, manufactures and launches advanced rockets and spacecraft. The
-                        company was founded in 2002 to revolutionize space technology, with the ultimate goal of
-                        enabling people to live on other planets.</p>
+                    <p>${summary}</p>
                     <div>
-                        <a href=""><i class='bx bxl-twitter'></i></a>
-                        <a href=""><i class='bx bxl-twitter'></i></a>
-                        <a href=""><i class='bx bxl-twitter'></i></a>
+                        <a href="${links.twitter}"><i class='bx bxl-twitter'></i></a>
+                        <a href="${links.elon_twitter}"><i class='bx bxl-twitter'></i></a>
+                        <a href="${links.website}"><i class='bx bxl-twitter'></i></a>
                     </div>
                 </div>
             </div>
         </div>
-    `;
-    }
+        `
+    }    
 }
 
