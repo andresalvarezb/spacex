@@ -37,6 +37,8 @@ export async function getInfoCompany() {
     companyContent.classList.add("company__content")
     companyText.classList.add("company__text")
 
+    companyContainer.setAttribute('id', 'company')
+
     companyContainerSummary.append(companySummary, companyContainerMedia)
     companyText.append(companyFounder, companyValuation, companyAddress)
     companyContent.append(companyText, companyContainerSummary)

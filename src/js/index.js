@@ -1,10 +1,15 @@
+import { getInfoCompany } from "./view/Home.js"
+import { showRockets } from "./view/rockets.js"
 
-import { CompanyInfo } from "./components/companyInfo.js";
-
-const main = document.getElementById("main")
-
-window.addEventListener('load', (e) => {
-    main.innerHTML = `<company-infomation></company-infomation>`
+// HOME
+window.addEventListener('load', async (e) => {
+    await getInfoCompany()
 })
 
-customElements.define("company-infomation", CompanyInfo);
+
+// ROCKETS
+const rocketBtn = document.getElementById('rockets')
+rocketBtn.addEventListener('click', async (e) => {
+    document.getElementById('company').remove()
+    await showRockets()
+})
