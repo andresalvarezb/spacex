@@ -7,29 +7,34 @@ const style = /*html*/ `
             margin:0;
             box-sizing: border-box;
         }
-        
+
         .rocket {
-            max-width: 250px;
-            height: 300px
+            height: 100%;
         }
 
         .rocket__name {
-            
+            color: #fff;
+            font-size: 1rem;
+            font-weight: normal;
         }
 
-        .rocket__img-container{
-            object-fit: cover;
+        .rocket__content {
+            height: calc(100% - 19px);
             position: relative;
         }
-
+        
         .rocket__img {
             width: 100%;
-            height: 100%
+            height: 100%;
+            object-fit: cover;
         }
 
         .rocket__status {
             position: absolute;
             bottom: 0;
+            z-index: 2;
+            color: #fff;
+            background-color: #2cf1336c;
         }
     </style>
 
@@ -50,9 +55,7 @@ export class RocketCard extends HTMLElement {
             <div class="rocket">
                 <h2 class="rocket__name">${this.name}</h2>
                 <div class="rocket__content">
-                    <div class="rocket__img-container">
-                        <img class="rocket__img" src="${this.img}" alt=""/>
-                    </div>
+                    <img class="rocket__img" src="${this.img}" alt=""/>
                     <p class="rocket__status">${this.status}</p>
                 </div>
             </div>
@@ -68,22 +71,22 @@ export class RocketCard extends HTMLElement {
         if (name == "image") this.img = now;
         if (name == "status") this.status = now;
     }
-    // connectedCallback() {
-    //     this.getData()
-    // }
-
-    // async getData() {
-    //     const rockets = await getImgSRockets();
-    //     rockets.forEach(({ id, name, flickr_images, status }) => {
-    //         this.shadowRoot.innerHTML += /*html*/ `
-    //             <div class="rocket">
-    //                 <h2 class="rocket__name">${name}</h2>
-    //                 <figure class="rocket__img-container">
-    //                     <img class="rocket__img" src="${flickr_images[0]}" alt=""/>
-    //                     <figcaption class="rocket__status">${status}</figcaption>
-    //                 </figure>
-    //             </div>
-    //         `;
-    //     });
-    // }
 }
+// connectedCallback() {
+//     this.getData()
+// }
+
+// async getData() {
+//     const rockets = await getImgSRockets();
+//     rockets.forEach(({ id, name, flickr_images, status }) => {
+//         this.shadowRoot.innerHTML += /*html*/ `
+//             <div class="rocket">
+//                 <h2 class="rocket__name">${name}</h2>
+//                 <figure class="rocket__img-container">
+//                     <img class="rocket__img" src="${flickr_images[0]}" alt=""/>
+//                     <figcaption class="rocket__status">${status}</figcaption>
+//                 </figure>
+//             </div>
+//         `;
+//     });
+// }
