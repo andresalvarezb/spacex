@@ -7,13 +7,29 @@ const style = /*html*/ `
             margin:0;
             box-sizing: border-box;
         }
+        
+        .rocket {
+            max-width: 250px;
+            height: 300px
+        }
+
+        .rocket__name {
+            
+        }
+
         .rocket__img-container{
             object-fit: cover;
+            position: relative;
         }
 
         .rocket__img {
             width: 100%;
             height: 100%
+        }
+
+        .rocket__status {
+            position: absolute;
+            bottom: 0;
         }
     </style>
 
@@ -33,10 +49,12 @@ export class RocketCard extends HTMLElement {
         this.shadowRoot.innerHTML += /*html*/ `
             <div class="rocket">
                 <h2 class="rocket__name">${this.name}</h2>
-                <figure class="rocket__img-container">
-                    <img class="rocket__img" src="${this.img}" alt=""/>
-                    <figcaption class="rocket__status">${this.status}</figcaption>
-                </figure>
+                <div class="rocket__content">
+                    <div class="rocket__img-container">
+                        <img class="rocket__img" src="${this.img}" alt=""/>
+                    </div>
+                    <p class="rocket__status">${this.status}</p>
+                </div>
             </div>
         `;
     }
