@@ -2,7 +2,7 @@ import { getInfoCompany } from "./view/Home.js"
 import { showRockets } from "./view/rockets.js"
 
 // HOME
-window.addEventListener('load', async (e) => {
+window.addEventListener('DOMContentLoaded', async (e) => {
     await getInfoCompany()
 })
 

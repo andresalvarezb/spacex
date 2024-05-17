@@ -1,0 +1,44 @@
+:root {
+    /* COLORS */
+    --color--one: #14152d;
+    --color--two: #9499c3;
+    --color--three: #298bfe;
+    --color--four: #e52d2d;
+    --color--five: #ffffff;
+    --color--six: #ffd733;
+
+
+    /* RADIUS */
+    --radius: 10px;
+
+    /* SIZES */
+    --desktop: 1000px;
+    --movil: 700px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    color: var(--color--five);
+}
+
+img {
+    width: 100%;
+}
