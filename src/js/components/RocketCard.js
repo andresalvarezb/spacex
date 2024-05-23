@@ -1,4 +1,3 @@
-import { getImgSRockets } from "../controller/rockets.controller.js";
 import './DescriptionRocket.js'
 const style = /*html*/ `
     <style>
@@ -41,67 +40,34 @@ const style = /*html*/ `
 `;
 
 export class RocketCard extends HTMLElement {
-    cardRockets
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
     this.shadowRoot.innerHTML = style;
-    this.name = "";
-    this.img = "";
-    this.status = "";
   }
 
-  renderCard(){
-    const modal = document.createElement('div')
-    modal.classList.add('modal')
-    const descriptionRocket = document.createElement('description-rocket')
-    modal.append(descriptionRocket)
-    document.querySelector('.wrapper__main').append(modal)
+  render(newData){
+    this.shadowRoot.innerHTML += /*html*/ `
+        <div class="rocket">
+            <h2 class="rocket__name">${newData.name}</h2>
+            <div class="rocket__content">
+                <img class="rocket__img" src="${newData.flickr_images[1]}" alt=""/>
+                <p class="rocket__status">${newData.active}</p>
+            </div>
+        </div>
+    `;
   }
 
   connectedCallback() {
-    this.shadowRoot.innerHTML += /*html*/ `
-            <div class="rocket">
-                <h2 class="rocket__name">${this.name}</h2>
-                <div class="rocket__content">
-                    <img class="rocket__img" src="${this.img}" alt=""/>
-                    <p class="rocket__status">${this.status}</p>
-                </div>
-            </div>
-        `;
+    const data = JSON.parse(this.getAttribute('info'));
+    console.log(data);
+    this.render(data)
 
-    this.cardRockets = [...this.shadowRoot.querySelectorAll(".rocket")];
-    this.cardRockets.forEach((rocket) => {
-      rocket.addEventListener("click", (e) => this.renderCard());
-    });
+    const rockets = this.shadowRoot.querySelectorAll(".rocket");
+    
   }
 
-  
   static get observedAttributes() {
-    return ["title", "image", "status"];
-  }
-
-  attributeChangedCallback(name, old, now) {
-    if (name == "title") this.name = now;
-    if (name == "image") this.img = now;
-    if (name == "status") this.status = now;
+    return ['info'];
   }
 }
-// connectedCallback() {
-//     this.getData()
-// }
-
-// async getData() {
-//     const rockets = await getImgSRockets();
-//     rockets.forEach(({ id, name, flickr_images, status }) => {
-//         this.shadowRoot.innerHTML += /*html*/ `
-//             <div class="rocket">
-//                 <h2 class="rocket__name">${name}</h2>
-//                 <figure class="rocket__img-container">
-//                     <img class="rocket__img" src="${flickr_images[0]}" alt=""/>
-//                     <figcaption class="rocket__status">${status}</figcaption>
-//                 </figure>
-//             </div>
-//         `;
-//     });
-// }

@@ -114,29 +114,11 @@
 }
 
 /* ROCKETS */
-.rockets {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    overflow: hidden;
-}
-
-.rockets > div {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* background-color: #2cf1336c; */
-}
-
 rocket-card {
     display: block;
     height: 350px;
     max-width: 250px;
 }
-
 /* MODAL */
 .modal {
     position: absolute;

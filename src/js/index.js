@@ -1,5 +1,6 @@
-import { showHome } from "./view/Home.js"
-import { showRockets } from "./view/rockets.js"
+
+import { show } from "./view/index.js"
+// import { showRockets } from "./view/rockets.js"
 
 // CONSTS
 const menuBtns = document.querySelectorAll('.nav__item')
@@ -7,13 +8,14 @@ const menuBtns = document.querySelectorAll('.nav__item')
 // HOME
 window.addEventListener('DOMContentLoaded', async (e) => {
     // await getInfoCompany()
-    await showHome()
+    await show('Home')
 })
 
 
 menuBtns.forEach((menuItem) => {
     menuItem.addEventListener("click", async (e) => {
-        if(e.target.textContent=='Home') await showHome()
+        await show(e.target.textContent)
+        // if(e.target.textContent=='Home') await showHome()
         console.log(e.target.textContent);
     })
 })

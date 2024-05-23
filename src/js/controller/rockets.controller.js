@@ -12,7 +12,7 @@ export async function getImgSRockets() {
   });
 }
 
-export async function getAllRockets() {
+export async function getInfRockets() {
   let rockets = await getRockets();
   return rockets.map((rocket) => {
     const {
@@ -23,6 +23,8 @@ export async function getAllRockets() {
       cost_per_launch,
       first_flight,
       country,
+      flickr_images,
+      active
     } = rocket;
     return {
       name,
@@ -32,6 +34,8 @@ export async function getAllRockets() {
       cost_per_launch,
       first_flight,
       country,
+      flickr_images,
+      active
     };
   });
 }
