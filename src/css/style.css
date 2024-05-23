@@ -57,6 +57,7 @@
     flex: 1;
     height: 100%;
     border-radius: var(--radius);
+    position: relative;
 }
 
 .main {
@@ -135,4 +136,15 @@ rocket-card {
     display: block;
     height: 350px;
     max-width: 250px;
+}
+
+/* MODAL */
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.807);
+    z-index: 5;
 }

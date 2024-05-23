@@ -14,3 +14,10 @@ rocketBtn.addEventListener('click', async (e) => {
     document.getElementById('company').remove()
     await showRockets()
 })
+
+// const cardRockets = document.querySelectorAll('.rocket')
+// cardRockets.forEach((rocket) => {
+//     rocket.addEventListener('click', async (e) => {
+//         console.log(e);
+//     })
+// })

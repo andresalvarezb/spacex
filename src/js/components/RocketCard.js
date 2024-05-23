@@ -1,5 +1,5 @@
 import { getImgSRockets } from "../controller/rockets.controller.js";
-
+import './DescriptionRocket.js'
 const style = /*html*/ `
     <style>
         * {
@@ -41,17 +41,26 @@ const style = /*html*/ `
 `;
 
 export class RocketCard extends HTMLElement {
-    constructor() {
-        super();
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = style;
-        this.name = "";
-        this.img = "";
-        this.status = "";
-    }
+    cardRockets
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.innerHTML = style;
+    this.name = "";
+    this.img = "";
+    this.status = "";
+  }
 
-    connectedCallback() {
-        this.shadowRoot.innerHTML += /*html*/ `
+  renderCard(){
+    const modal = document.createElement('div')
+    modal.classList.add('modal')
+    const descriptionRocket = document.createElement('description-rocket')
+    modal.append(descriptionRocket)
+    document.querySelector('.wrapper__main').append(modal)
+  }
+
+  connectedCallback() {
+    this.shadowRoot.innerHTML += /*html*/ `
             <div class="rocket">
                 <h2 class="rocket__name">${this.name}</h2>
                 <div class="rocket__content">
@@ -60,17 +69,23 @@ export class RocketCard extends HTMLElement {
                 </div>
             </div>
         `;
-    }
 
-    static get observedAttributes() {
-        return ["title", "image", "status"];
-    }
+    this.cardRockets = [...this.shadowRoot.querySelectorAll(".rocket")];
+    this.cardRockets.forEach((rocket) => {
+      rocket.addEventListener("click", (e) => this.renderCard());
+    });
+  }
 
-    attributeChangedCallback(name, old, now) {
-        if (name == "title") this.name = now;
-        if (name == "image") this.img = now;
-        if (name == "status") this.status = now;
-    }
+  
+  static get observedAttributes() {
+    return ["title", "image", "status"];
+  }
+
+  attributeChangedCallback(name, old, now) {
+    if (name == "title") this.name = now;
+    if (name == "image") this.img = now;
+    if (name == "status") this.status = now;
+  }
 }
 // connectedCallback() {
 //     this.getData()
