@@ -40,15 +40,14 @@
 .nav__item {
     margin-bottom: 1rem;
     font-size: 1.5rem;
-}
-
-.nav__item a {
     color: var(--color--two);
 }
 
-.nav__item a:hover,
-.nav__item a:active {
+
+.nav__item:hover,
+.nav__item:active {
     color: var(--color--one);
+    cursor: pointer;
 }
 
 /* MAIN */

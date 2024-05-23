@@ -1,5 +1,3 @@
-import { getInfoCompany } from "../controller/Company.controller.js";
-
 const style = /*html */ `
     <style>
         .company {
@@ -51,20 +49,25 @@ const style = /*html */ `
 `;
 
 export class CompanyInfo extends HTMLElement {
+    data;
     constructor() {
         super();
         this.attachShadow({mode: 'open'})
         this.shadowRoot.innerHTML = style
     }
 
+    setData(newData) {
+        this.data = newData
+    }
+
     connectedCallback(){
-        this.getData()
+        this.getData(this.data)
     }
 
 
     // METODOS
-    async getData() {
-        const {headquarters, links, founder, valuation, summary} = await getInfoCompany()
+    async getData(newData) {
+        const {headquarters, links, founder, valuation, summary} = newData
         this.shadowRoot.innerHTML += /*html */`
         <div class="company">
             <div class="company__content">
@@ -87,3 +90,4 @@ export class CompanyInfo extends HTMLElement {
     }    
 }
 
+customElements.define("company-info", CompanyInfo)
