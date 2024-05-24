@@ -114,18 +114,21 @@
 }
 
 /* ROCKETS */
-rocket-card {
+/* rocket-card {
     display: block;
     height: 350px;
     max-width: 250px;
-}
+} */
+
 /* MODAL */
-.modal {
+description-rocket {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.733);
     position: absolute;
     top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.807);
     z-index: 5;
+    padding: 1.5rem;
 }

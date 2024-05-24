@@ -1,4 +1,4 @@
-import './DescriptionRocket.js'
+import "./DescriptionRocket.js";
 const style = /*html*/ `
     <style>
         * {
@@ -40,14 +40,14 @@ const style = /*html*/ `
 `;
 
 export class RocketCard extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-    this.shadowRoot.innerHTML = style;
-  }
+    constructor() {
+        super();
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.innerHTML = style;
+    }
 
-  render(newData){
-    this.shadowRoot.innerHTML += /*html*/ `
+    render(newData) {
+        this.shadowRoot.innerHTML += /*html*/ `
         <div class="rocket">
             <h2 class="rocket__name">${newData.name}</h2>
             <div class="rocket__content">
@@ -56,18 +56,37 @@ export class RocketCard extends HTMLElement {
             </div>
         </div>
     `;
-  }
+    }
 
-  connectedCallback() {
-    const data = JSON.parse(this.getAttribute('info'));
-    console.log(data);
-    this.render(data)
+    connectedCallback() {
+        const data = JSON.parse(this.getAttribute("info"));
+        this.render(data);
 
-    const rockets = this.shadowRoot.querySelectorAll(".rocket");
-    
-  }
 
-  static get observedAttributes() {
-    return ['info'];
-  }
+        this.addEventListener("click", () => {
+
+            let descriptionRocket = document.querySelector("description-rocket");
+            const main = document.querySelector("main");
+            console.log(descriptionRocket);
+            if(descriptionRocket) {
+                main.removeChild(descriptionRocket)
+            }
+            descriptionRocket = document.createElement("description-rocket");
+            descriptionRocket.setAttribute('description', JSON.stringify(data))
+            main.append(descriptionRocket);
+        });
+    }
+
+    static get observedAttributes() {
+        return ["info"];
+    }
 }
+// const rocketInfo = document.querySelector('rocket-info')
+// rocket.addEventListener("click", () => {
+//     const descriptionRocket = document.createElement('description-rocket')
+//     if(descriptionRocket){
+//         rocketInfo.remove(descriptionRocket)
+//     }
+//     descriptionRocket.setAttribute('description', JSON.stringify(data));
+//     document.getElementById("main").insertAdjacentElement('beforeend', descriptionRocket)
+// })

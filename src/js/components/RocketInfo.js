@@ -15,9 +15,13 @@ const styles = /*html */`
             align-items: center;
             flex-wrap: wrap;
             justify-content: center;
-            /* background-color: #2cf1336c; */
         }
 
+        rocket-card {
+            display: block;
+            height: 350px;
+            max-width: 250px;
+        }
     </style>
 `
 export class RocketInfo extends HTMLElement{
